@@ -33,9 +33,26 @@ mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-cron.schedule("* * * * *", function() {
-  console.log("running a task every minute");
+
+
+
+cron.schedule("*/1 * * * *", function() {
+  console.log("running a task every 30 minutes");
+  var shell = require('./child_helper');
+  var commandList = [
+    "node crawler/world.js",
+    "node crawler/world_depth.js"
+  ]
+  shell.series(commandList, function(err) {
+    //    console.log('executed many commands in a row');
+    console.log('done')
+  });
 });
+
+
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
