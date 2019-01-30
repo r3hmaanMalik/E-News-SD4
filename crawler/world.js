@@ -17,7 +17,7 @@ request('https://www.dawn.com/latest-news', (error, response, html) => {
     // Creations
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
-      var dbo = db.db("mangoes-cron-test");
+      var dbo = db.db("mangoes");
       $('div#world').children('article.box').each((i, el) => {
         title = $(el).find('a.story__link').text();
         discrp = $(el).find('div.story__excerpt').text();

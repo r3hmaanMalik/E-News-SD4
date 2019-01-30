@@ -36,17 +36,21 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 
-cron.schedule("*/1 * * * *", function() {
+cron.schedule("*/30 * * * *", function() {
   console.log("running a task every 30 minutes");
-  var shell = require('./child_helper');
-  var commandList = [
-    "node crawler/world.js",
-    "node crawler/world_depth.js"
-  ]
-  shell.series(commandList, function(err) {
-    //    console.log('executed many commands in a row');
-    console.log('done')
-  });
+
+  // uncomment it for running crawler
+
+
+  // var shell = require('./child_helper');
+  // var commandList = [
+  //   "node crawler/world.js",
+  //   "node crawler/world_depth.js"
+  // ]
+  // shell.series(commandList, function(err) {
+  //   //    console.log('executed many commands in a row');
+  //   console.log('done')
+  // });
 });
 
 

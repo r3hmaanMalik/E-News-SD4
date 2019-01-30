@@ -13,7 +13,7 @@ var url = 'mongodb://localhost:27017/';
 var hoder;
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
-  var dbo = db.db("mangoes-cron-test");
+  var dbo = db.db("mangoes");
   var detail = dbo.collection("worlds").find({}, {
     projection: {
       newslink: 1,
