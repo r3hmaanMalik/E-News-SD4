@@ -1,0 +1,7 @@
+<h1>Recent Blog Posts</h1>
+    <% for(let i = 0; i < posts.length; i++) { %>
+        <article>
+            <h2><%= posts[i].name %></h1>
+            <p><%= posts[i].made %></p>
+        </article>
+    <% } %>

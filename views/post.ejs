@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>E-News</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Demo project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap4/bootstrap.min.css">
+<link href="/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="/plugins/jquery.mb.YTPlayer-3.1.12/jquery.mb.YTPlayer.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/post.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/post_responsive.css">
+</head>
+<body>
+
+<div class="super_container">
+
+	<!-- Header -->
+
+	<header class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="header_content d-flex flex-row align-items-center justify-content-start">
+						<div class="logo"><a href="#">E-News</a></div>
+						<nav class="main_nav">
+							<ul>
+								<li class="active"><a href="/">Home</a></li>
+								<li><a href="/latest">Latest</a></li>
+								<li><a href="/business">Business</a></li>
+								<li><a href="/world">World</a></li>
+								<li><a href="/sports">Sports</a></li>
+								<li><a href="/entertainment">Entertainment</a></li>
+								<li><a href="/studentcorner">Student Corner</a></li>
+
+							</ul>
+						</nav>
+
+
+
+						<!-- Sidebar Post -->
+
+
+						<div class="hamburger ml-auto menu_mm">
+							<i class="fa fa-bars trans_200 menu_mm" aria-hidden="true"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Menu -->
+
+	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+		<div class="logo menu_mm"><a href="/">E-News</a></div>
+		<div class="search">
+			<form action="#">
+				<input type="search" class="header_search_input menu_mm" required="required" placeholder="Type to Search...">
+				<img class="header_search_icon menu_mm" src="/images/search_2.png" alt="">
+			</form>
+		</div>
+		<nav class="menu_nav">
+			<ul class="menu_mm">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/latest">Latest</a></li>
+				<li><a href="/business">Business</a></li>
+				<li><a href="/world">World</a></li>
+				<li><a href="/sports">Sports</a></li>
+				<li><a href="/entertainment">Entertainment</a></li>
+				<li><a href="/studentcorner">Student Corner</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<!-- Home -->
+
+	<div class="home">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="https://source.unsplash.com/1920x720/?<%=randomImage %>" data-speed="0.8"></div>
+		<div class="home_content">
+			<div class="post_category trans_200"><a href="/<%=category %>" class="trans_200"><%= category %></a></div>
+			<div class="post_title"><%= message.title %>?</div>
+		</div>
+	</div>
+
+	<!-- Page Content -->
+
+	<div class="page_content">
+		<div class="container">
+			<div class="row row-lg-eq-height">
+
+				<!-- Post Content -->
+
+				<div class="col-lg-9">
+					<div class="post_content">
+
+						<!-- Top Panel -->
+						<div class="post_panel post_panel_top d-flex flex-row align-items-center justify-content-start">
+							<!-- <div class="author_image"><div><img src="/images/author.jpg" alt=""></div></div> -->
+							<div class="post_meta"> </div>
+							<div class="post_share ml-sm-auto">
+								<span>share</span>
+								<ul class="post_share_list">
+									<li class="post_share_item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+									<li class="post_share_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li class="post_share_item"><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Post Body -->
+
+						<div class="post_body">
+							<figure>
+								<img src="<%= message.ilink %>" alt="">
+								<figcaption><%= message.title %></figcaption>
+							</figure>
+							<p class="post_p"><%= message.content %></p>
+
+							<!-- Post Tags -->
+
+						</div>
+
+						<!-- Bottom Panel -->
+
+
+						<!-- Similar Posts -->
+						<div class="similar_posts">
+							<div class="grid clearfix">
+
+								<!-- Small Card With Image -->
+								<div class="card card_small_with_image grid-item">
+									<img class="card-img-top" src="/images/post_25.jpg" alt="https://unsplash.com/@jakobowens1">
+									<div class="card-body">
+										<div class="card-title card-title-small"><a href="post.html">How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in Physics?</a></div>
+										<small class="post_meta"> </small>
+									</div>
+								</div>
+
+								<!-- Small Card With Image -->
+								<div class="card card_small_with_image grid-item">
+									<img class="card-img-top" src="/images/post_2.jpg" alt="https://unsplash.com/@jakobowens1">
+									<div class="card-body">
+										<div class="card-title card-title-small"><a href="post.html">How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in Physics?</a></div>
+										<small class="post_meta"> </small>
+									</div>
+								</div>
+
+								<!-- Small Card With Image -->
+								<div class="card card_small_with_image grid-item">
+									<img class="card-img-top" src="/images/post_26.jpg" alt="https://unsplash.com/@jakobowens1">
+									<div class="card-body">
+										<div class="card-title card-title-small"><a href="post.html">How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in Physics?</a></div>
+										<small class="post_meta"> </small>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row row-lg-eq-height">
+				<div class="col-lg-9 order-lg-1 order-2">
+					<div class="footer_content">
+						<div class="footer_logo"><a href="#">E-News</a></div>
+						<div class="footer_social">
+							<ul>
+								<li class="footer_social_facebook"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li class="footer_social_twitter"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+								<li class="footer_social_pinterest"><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+								<li class="footer_social_vimeo"><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+								<li class="footer_social_instagram"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+								<li class="footer_social_google"><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+						<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</footer>
+</div>
+
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/stylesheets//bootstrap4/popper.js"></script>
+<script src="/stylesheets//bootstrap4/bootstrap.min.js"></script>
+<script src="/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="/plugins/easing/easing.js"></script>
+<script src="/plugins/masonry/masonry.js"></script>
+<script src="/plugins/parallax-js-master/parallax.min.js"></script>
+<script src="/js/post.js"></script>
+</body>
+</html>
