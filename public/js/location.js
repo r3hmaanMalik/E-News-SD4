@@ -39,7 +39,7 @@ $(document).ready(function() {
         console.log(url['id']);
         $.get("/locationBasesLatest/" + url['id'], function(parents) {
           console.log(parents['title'])
-          var txt1 = "<div class='side_post'><a href='/latest'" + url['id'] + "''><div class='d-flex flex-row align-items-xl-center align-items-start justify-content-start'><div class='side_post_image'><div><img src='" + url['ilink'] + "'></div></div><div class='side_post_content'><div class='side_post_title'>" + parents['title'] + "</div><small class='post_meta'> </small></div></div></a></div>"; // Create element with HTML
+          var txt1 = "<div class='side_post'><a href='/latest/" + url['id'] + "''><div class='d-flex flex-row align-items-xl-center align-items-start justify-content-start'><div class='side_post_image'><div><img src='" + url['ilink'] + "'></div></div><div class='side_post_content'><div class='side_post_title'>" + parents['title'] + "</div><small class='post_meta'> </small></div></div></a></div>"; // Create element with HTML
           $("#locationbase").append(txt1);
           $(".inner").append(txt1);
 
