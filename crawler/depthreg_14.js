@@ -1,6 +1,3 @@
-//SCHOLARSHIP DETAILS
-
-
 //DETAIL NEWS
 
 
@@ -16,8 +13,8 @@ var url = 'mongodb://localhost:27017/';
 var hoder;
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
-  var dbo = db.db("mangoes");
-  var detail = dbo.collection("students").find({}, {
+  var dbo = db.db("razakDb");
+  var detail = dbo.collection("regional").find({}, {
     projection: {
       newslink: 1,
       _id: 1
@@ -39,12 +36,15 @@ MongoClient.connect(url, function(err, db) {
         ++countMe;
         console.log("+++++++++++++" + countMe + "++++++++++++++++++++++++++");
 
-        title = $('h1.entry-title').text();
-        $('div.post-content.entry-content').each((i, el) => {
+        title = $('h1').text();
+        console.log(title);
 
-          content = content + $(el).text();
+        $('section.detail-page').each((i, el) => {
+
+          content = content + $(el).find('div.post-content > p').text();;
 
         });
+        imglink = $('picture > img').attr('src');
 
         var post = {
           id: doc._id,
@@ -52,7 +52,7 @@ MongoClient.connect(url, function(err, db) {
           content: content,
           ilink: imglink
         }
-        dbo.collection("studentdetails").insertOne(post, function(err, res) {
+        dbo.collection("detailreg").insertOne(post, function(err, res) {
           if (err) throw err;
           console.log("inserted");
 

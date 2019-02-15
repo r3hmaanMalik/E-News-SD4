@@ -16,7 +16,7 @@ request('https://dunyanews.tv/', (error, response, html) => {
     // Creations
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
-      var dbo = db.db("mangoes");
+      var dbo = db.db("razakDb");
 
       $('div.detl_feturezz').find('a').each(function(i, elem) {
         if (!$(this).text()) {

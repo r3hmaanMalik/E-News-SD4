@@ -1,13 +1,14 @@
-//LATEST NEWS
+//DUNYA HOME PAGE
 
 
 const request = require('request');
 const cheerio = require('cheerio');
 const mongodb = require('mongodb');
 // Write Header
+
 var title, discrp, imglink, newslink;
 
-request('https://www.dawn.com/latest-news', (error, response, html) => {
+request('https://dunyanews.tv/', (error, response, html) => {
   if (!error && response.statusCode == 200) {
     const $ = cheerio.load(html);
     var MongoClient = require('mongodb').MongoClient,
@@ -17,13 +18,12 @@ request('https://www.dawn.com/latest-news', (error, response, html) => {
     // Creations
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
-      var dbo = db.db("mangoes");
-      $('div#business').children('article.box').each((i, el) => {
-        title = $(el).find('a.story__link').text();
-        discrp = $(el).find('div.story__excerpt').text();
-        newslink = $(el).find('div.media__item > a').attr('href');
-        imglink = $(el).find('div.media__item > a > img').attr('src');
-
+      var dbo = db.db("razakDb");
+      $('div.edwn_inner').each((i, el) => {
+        title = $(el).find('h2 > a').text();
+        newslink = $(el).find('h2 > a').attr('href');
+        discrp = $(el).find('div.edwn_desc > p').text();
+        imglink = $(el).find('figure > a > img').attr('src');
 
         var post = {
           title: title,
@@ -31,12 +31,9 @@ request('https://www.dawn.com/latest-news', (error, response, html) => {
           newslink: newslink,
           ilink: imglink
         }
-        console.log(post);
-
-        dbo.collection("businesses").insertOne(post, function(err, res) {
+        dbo.collection("dunya").insertOne(post, function(err, res) {
           if (err) throw err;
           console.log(i + "inserted");
-
         });
       });
       db.close();

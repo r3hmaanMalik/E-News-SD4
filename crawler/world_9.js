@@ -1,16 +1,14 @@
-//STUDENTS PART
+//LATEST NEWS
+
 
 const request = require('request');
 const cheerio = require('cheerio');
 const mongodb = require('mongodb');
-// Write Headers
+// Write Header
+var title, discrp, imglink, newslink;
 
-var title, discrp, newslink, imglink;
-
-
-request('https://scholarshipscorner.website/category/undergraduate-scholarships/', (error, response, html) => {
+request('https://www.dawn.com/latest-news', (error, response, html) => {
   if (!error && response.statusCode == 200) {
-
     const $ = cheerio.load(html);
     var MongoClient = require('mongodb').MongoClient,
       assert = require('assert');
@@ -19,14 +17,12 @@ request('https://scholarshipscorner.website/category/undergraduate-scholarships/
     // Creations
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
-      var dbo = db.db("mangoes");
-
-      $('article').each((i, el) => {
-
-        newslink = $(el).find('div.header > a').attr('href');
-        imglink = $(el).find('div.header > a > img').attr('src');
-        title = $(el).find('div.header > a').attr('title');
-        discrp = $(el).find('div.post-content > div.excerpt.entry-summary > p').text();
+      var dbo = db.db("razakDb");
+      $('div#world').children('article.box').each((i, el) => {
+        title = $(el).find('a.story__link').text();
+        discrp = $(el).find('div.story__excerpt').text();
+        newslink = $(el).find('div.media__item > a').attr('href');
+        imglink = $(el).find('div.media__item > a > img').attr('src');
 
 
         var post = {
@@ -35,9 +31,11 @@ request('https://scholarshipscorner.website/category/undergraduate-scholarships/
           newslink: newslink,
           ilink: imglink
         }
-        dbo.collection("students").insertOne(post, function(err, res) {
+
+        dbo.collection("worlds").insertOne(post, function(err, res) {
           if (err) throw err;
           console.log(i + "inserted");
+
         });
       });
       db.close();

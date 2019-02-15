@@ -13,8 +13,8 @@ var url = 'mongodb://localhost:27017/';
 var hoder;
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
-  var dbo = db.db("mangoes");
-  var detail = dbo.collection("entertainments").find({}, {
+  var dbo = db.db("razakDb");
+  var detail = dbo.collection("sports").find({}, {
     projection: {
       newslink: 1,
       _id: 1
@@ -36,8 +36,8 @@ MongoClient.connect(url, function(err, db) {
         ++countMe;
         console.log("+++++++++++++" + countMe + "++++++++++++++++++++++++++");
 
-        title = $('.col-sm-11.col-12').find('h2 > a').text();
-        $('div.story__content.mt-4.pt-4   > p').each((i, el) => {
+        title = $('.story__title.size-ten.mt-1.pb-3.border--bottom').find('h2 > a').text();
+        $('div.story__content.pt-1.mt-1 > p').each((i, el) => {
 
           content = content + $(el).text();
 
@@ -50,7 +50,7 @@ MongoClient.connect(url, function(err, db) {
           content: content,
           ilink: imglink
         }
-        dbo.collection("ent_details").insertOne(post, function(err, res) {
+        dbo.collection("sports_details").insertOne(post, function(err, res) {
           if (err) throw err;
           console.log("inserted");
 

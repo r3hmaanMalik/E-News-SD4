@@ -13,8 +13,8 @@ var url = 'mongodb://localhost:27017/';
 var hoder;
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
-  var dbo = db.db("mangoes");
-  var detail = dbo.collection("worlds").find({}, {
+  var dbo = db.db("razakDb");
+  var detail = dbo.collection("businesses").find({}, {
     projection: {
       newslink: 1,
       _id: 1
@@ -50,7 +50,7 @@ MongoClient.connect(url, function(err, db) {
           content: content,
           ilink: imglink
         }
-        dbo.collection("worlddetails").insertOne(post, function(err, res) {
+        dbo.collection("businesses_details").insertOne(post, function(err, res) {
           if (err) throw err;
           console.log("inserted");
 

@@ -17,8 +17,8 @@ request('https://www.dawn.com/latest-news', (error, response, html) => {
     // Creations
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
-      var dbo = db.db("mangoes");
-      $('div#world').children('article.box').each((i, el) => {
+      var dbo = db.db("razakDb");
+      $('div#pakistan').children('article.box').each((i, el) => {
         title = $(el).find('a.story__link').text();
         discrp = $(el).find('div.story__excerpt').text();
         newslink = $(el).find('div.media__item > a').attr('href');
@@ -32,7 +32,7 @@ request('https://www.dawn.com/latest-news', (error, response, html) => {
           ilink: imglink
         }
 
-        dbo.collection("worlds").insertOne(post, function(err, res) {
+        dbo.collection("pakistan").insertOne(post, function(err, res) {
           if (err) throw err;
           console.log(i + "inserted");
 
